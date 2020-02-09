@@ -1,0 +1,6 @@
+{{object.title}}
+{{object.link}}
+{{object.content}}
+{{object.origin}}
+{{object.date}}
+{{object.writer}}

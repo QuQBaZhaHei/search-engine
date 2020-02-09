@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>搜索引擎</title>
+		<link rel="stylesheet" type="text/css" href="../../static/css/styles.css" />
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				font-family: "微软雅黑";
+			}
+			.ctn{
+				width: 1200px;
+				margin: auto;
+			}
+			#top{
+				height: 60px;
+				width: 100%;
+				padding: 20px;
+				box-shadow: 1px 1px 1px 1px gainsboro;
+				position: fixed;
+				top: 0;
+				background: white;
+			}
+			.txt{
+				font-size: 25px;
+				width: 600px;
+				padding-left: 15px;
+				padding-bottom: 10px;
+				padding-top: 10px;
+				float: left;
+				border: orange 2px solid;
+				color: #5c5c5c;
+				outline: none;
+			}
+			form{
+				width: 680px;
+				height: 53px;
+			}
+			.btns{
+				width: 60px;
+				height: 53px;
+				float: right;
+				border: 0;				
+				background: orange;
+				background-image: url(../../static/img/11.png);
+			}
+			.btns:hover{
+				opacity: 0.7;
+				cursor: pointer;
+			}
+			.items{
+				margin-top: 20px;
+				margin-left: 20px;
+			}
+			.items p{
+				width: 730px;
+			}
+			a{
+				text-decoration: none;
+				color: darkgray;
+			}
+			.at{
+				color: black;
+				font-size: 24px;
+			}
+			.ap{
+				color: #5c5c5c;
+			}
+			.right{
+				position: fixed;
+				width: 200px;
+				height: 300px;
+				left: 1050px;
+				top: 110px;
+			}
+			ul{
+				padding: 0;
+				margin-top: 20px;
+			}
+			.right li:nth-child(1){
+				margin-bottom: 10px;
+			}
+			li{
+				list-style: none;
+				height: 30px;
+				line-height: 30px;
+			}
+			.right a{
+				color: blue;
+				font-size:14px;
+				margin-left: 20px;
+			}
+			.ctn1{
+				margin-top: 130px;
+			}
+			.codehilite{
+				width: 730px;
+				background: white;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div id="top">
+			<div class="ctn">
+				<form >
+					<input class="txt" type="text" maxlength="200" name="" id="" value="{{message}}" />
+					<input class="btns" type="button" value="" />
+				</form>
+			</div>			
+		</div>
+		<div class=" ctn1 ctn">
+			{% for i in message %}
+			<div class="items">
+				<div class="codehilite"><a class="at" href="www.baidu.con"><span class="gr">{{message}}</span></a></div>
+				<div>
+					<a class="ap" href="#">
+					<p>摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要</p>
+					</a>
+				</div>
+				<a href="www.baidu.con">www.baidu.con</a>
+			</div>
+			{% endfor %}
+		</div>
+		<div class="right">
+			<ul>
+				<li><strong>热门搜索</strong></li>
+				{% for i in hort %}
+				<li><a href="">{{i}}</a></li>
+				{% endfor %}
+			</ul>
+			<ul>
+				<li><strong>我的搜索</strong></li>
+				{% for i in history %}
+				<li><a href="">{{i}}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+		<script type="text/javascript" src="../../static/js/jquery.min.js" ></script>
+		<script type="text/javascript">
+			$(".btns").click(function(){
+				$.ajax({
+					type:"get",
+					url:"ajax/",
+					data:{'q1':$('.txt').val()},
+					async:true,
+					dataType:"json",
+					success:function(data){			
+						console.log(data)
+						let str=''
+						for (let i=0;i<data.length;i++) {
+							str+="<div class='items'><div><a class='at' href='www.baidu.con'>"+data.message+"</a></div><div><a class='ap' href='#'><p>摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要</p></a></div><a href='www.baidu.con'>www.baidu.con</a></div>"
+						}
+						$('.ctn1').empty()
+						$('.ctn1').html(str)
+					},
+					error:function(data){
+						alert("buhao",data)
+					}
+				});
+			})
+		</script>
+	</body>
+</html>
