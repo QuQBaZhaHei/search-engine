@@ -188,7 +188,7 @@ QtPy==1.9.0
 queuelib==1.5.0
 redis==3.3.11
 requests==2.22.0
-rope==0.10.7
+rope==0.11.0
 ruamel-yaml==0.15.80
 s3transfer==0.2.1
 scikit-learn==0.19.1
