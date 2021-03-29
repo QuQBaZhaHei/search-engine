@@ -157,7 +157,7 @@ pycurl==7.43.0.3
 PyDispatcher==2.0.5
 pydotplus==2.0.2
 pyflakes==1.6.0
-Pygments==2.2.0
+Pygments==2.7.4
 PyHamcrest==1.9.0
 pylint==1.8.2
 PyMySQL==0.9.3
