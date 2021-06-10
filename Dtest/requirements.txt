@@ -51,7 +51,7 @@ dask==2.9.0
 datashape==0.5.4
 decorator==4.4.1
 distributed==2.9.1
-Django==2.2.3
+Django==2.2.24
 django-haystack==2.8.1
 docutils==0.15.2
 elasticsearch==6.3.1
